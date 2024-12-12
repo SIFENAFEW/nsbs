@@ -1,14 +1,14 @@
-/* General body styling */
+/* General styles */
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     background-color: #22254b;
     color: #fff;
-    height: 100vh;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
 }
 body {
     background-image: url('firstbackg.jpg'); 
@@ -24,7 +24,7 @@ body {
     text-align: center;
     height: 100vh;
 }
-/* Welcome container */
+
 .welcome-container {
     background: rgba(0,0,0,0.4);
     padding: 50px;
@@ -34,26 +34,22 @@ body {
     width: 100%;
 }
 
-/* Heading */
-.welcome-container h1 {
+h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+p {
     margin-bottom: 20px;
-    font-size: 36px;
-    font-weight: bold;
+    color: #555;
 }
 
-/* Paragraph */
-.welcome-container p {
-    font-size: 18px;
-    margin-bottom: 30px;
-}
-
-/* Buttons container */
 .buttons {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 15px;
 }
 
-/* Buttons styling */
 .btn {
     background: lightblue;
     color: black;
@@ -61,5 +57,43 @@ body {
     text-decoration: none;
     border-radius: 5px;
     font-size: 16px;
-    
+}
+
+.btn:hover {
+    background: #22254b;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
 }
