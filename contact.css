@@ -149,6 +149,41 @@ main {
   display: block;
   margin: 0 auto;
 }
+ /* Responsive Design */
+ @media (max-width: 768px) {
+  .book {
+    width: 45%;
+  }
+
+  /* Navbar adjustments for smaller screens */
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  .nav .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem; /* Add gap for spacing between elements */
+  }
+
+  .nav a {
+    text-align: center; /* Center text for vertical layout */
+  }
+
+  /* Optional: Adjust logo position */
+  .nav .logo {
+    margin-top: 1rem; /* Add margin to logo */
+  }
+}
+
+@media (max-width: 480px) {
+  .book {
+    width: 100%;
+  }
+}
 
 footer {
   background-color: var(--primary-color);
