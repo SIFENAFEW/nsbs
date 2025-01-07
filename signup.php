@@ -5,26 +5,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $confpassword = $_POST['confpassword'];
-
-    // Validate password
+    
     if ($password !== $confpassword) {
         echo "<script>alert('Passwords do not match.');</script>";
+        return; // Stop further execution
     } else {
-        // Hash the password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-        // Prepare and bind
         $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $username, $email, $hashed_password);
 
-        // Execute the statement
         if ($stmt->execute()) {
-            echo "<script>alert('Sign up successful!');</script>";
+            echo "<script>alert('Sign up successful!'); window.location.href='login.php';</script>";
+            
         } else {
             echo "<script>alert('Error: " . $stmt->error . "');</script>";
         }
-
-        // Close the statement
         $stmt->close();
     }
 }
@@ -42,14 +37,14 @@ $conn->close();
 <body>
     <div class="signup-container">
         <h2>Please Sign Up</h2>
-        <form action="index.php" method="POST">
+        <form action="signup.php" method="POST" onsubmit="return validatePasswords();">
             <input type="text" name="username" placeholder="Username" required>
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
             <input type="password" name="confpassword" placeholder=" confirm Password" required>
             <input type="submit" value="Sign Up">
         </form>
-        <p>Already have an account? <a href="login.html">Login</a></p>
+        <p>Already have an account? <a href="login.php">Login</a></p>
     </div>
 </body>
 </html>
