@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if ($password !== $confpassword) {
         echo "<script>alert('Passwords do not match.');</script>";
-        return; // Stop further execution
+        return;
     } else {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
