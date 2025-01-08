@@ -7,41 +7,40 @@ session_start();
 //     exit();
 // }
 
-// Include database connection
+
 include("db_conn.php");
 
-// Handle adding a new book
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_book'])) {
     $title = $_POST['title'];
     $description = $_POST['description'];
     
-    // Handle file upload
+    
     if (isset($_FILES['book_file']) && $_FILES['book_file']['error'] == 0) {
         $file_tmp = $_FILES['book_file']['tmp_name'];
         $file_name = $_FILES['book_file']['name'];
-        $file_path = "uploads/" . basename($file_name); // Define the path to save the file
+        $file_path = "uploads/" . basename($file_name);
 
-        // Check if the uploads directory exists, if not create it
+        
         if (!is_dir('uploads')) {
             mkdir('uploads', 0755, true);
         }
 
-        // Move the uploaded file to the designated directory
+       
         if (move_uploaded_file($file_tmp, $file_path)) {
-            // Handle image upload
+            
             if (isset($_FILES['book_image']) && $_FILES['book_image']['error'] == 0) {
                 $image_tmp = $_FILES['book_image']['tmp_name'];
                 $image_name = $_FILES['book_image']['name'];
-                $image_path = "uploads/images/" . basename($image_name); // Define the path to save the image
+                $image_path = "uploads/images/" . basename($image_name); 
 
-                // Check if the images directory exists, if not create it
+                
                 if (!is_dir('uploads/images')) {
                     mkdir('uploads/images', 0755, true);
                 }
 
-                // Move the uploaded image to the designated directory
+                
                 if (move_uploaded_file($image_tmp, $image_path)) {
-                    // Insert book details into the books table
+                  
                     $stmt = $conn->prepare("INSERT INTO books (title, pdf, description, book_image) VALUES (?, ?, ?, ?)");
                     $stmt->bind_param("ssss", $title, $file_path, $description, $image_path);
                     $stmt->execute();
@@ -58,7 +57,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_book'])) {
     }
 }
 
-// Handle deleting a book
 if (isset($_GET['delete_id'])) {
     $delete_id = $_GET['delete_id'];
     $stmt = $conn->prepare("DELETE FROM books WHERE book_id = ?");
@@ -67,8 +65,8 @@ if (isset($_GET['delete_id'])) {
     $stmt->close();
 }
 
-// Fetch existing books
-$result = $conn->query("SELECT * FROM books"); // Assuming the table name is 'books'
+
+$result = $conn->query("SELECT * FROM books"); 
 ?>
 
 <!DOCTYPE html>
