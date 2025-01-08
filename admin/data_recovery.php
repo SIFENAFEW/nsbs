@@ -8,7 +8,7 @@ session_start();
 // }
 
 
-include("db_conn.php");
+include("../dbs/db_conn.php");
 
 ?>
 

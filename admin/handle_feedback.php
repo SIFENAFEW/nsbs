@@ -8,7 +8,7 @@ session_start();
 // }
 
 // Include database connection
-include("db_conn.php");
+include("../dbs/db_conn.php");
 
 // Handle feedback management logic here (view, respond)
 ?>
