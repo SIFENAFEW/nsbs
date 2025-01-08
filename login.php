@@ -1,5 +1,6 @@
 <?php 
 include("db_conn.php");
+session_start(); // Start the session at the beginning
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
@@ -14,15 +15,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $result->fetch_assoc();
         
         if (password_verify($password, $user['password'])) {
-            session_start();
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
-            echo "<script>alert('Login successful!'); window.location.href='index.php';</script>";
+            header("Location: index.php"); // Redirect to index.php
+            exit();
         } else {
-            echo "<script>alert('Invalid password.');</script>";
+            $error_message = "Invalid password.";
         }
     } else {
-        echo "<script>alert('No user found with that email.');</script>";
+        $error_message = "No user found with that email.";
     }
     
     $stmt->close();
@@ -42,6 +43,9 @@ $conn->close();
 <body>
     <div class="signup-container">
         <h2>Please Login</h2>
+        <?php if (isset($error_message)): ?>
+            <p style="color: red;"><?php echo htmlspecialchars($error_message); ?></p>
+        <?php endif; ?>
         <form action="login.php" method="POST">
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>

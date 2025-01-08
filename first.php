@@ -13,8 +13,8 @@
     <h1>Welcome</h1>
     <p>Your next great read is just a click away</p>
     <div class="buttons">
-        <a href="login.html" class="btn">Login</a>
-        <a href="signup.html" class="btn">Sign Up</a>
+        <a href="login.php" class="btn">Login</a>
+        <a href="signup.php" class="btn">Sign Up</a>
     </div>
 </div>
 
