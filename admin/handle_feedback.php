@@ -19,7 +19,7 @@ include("../dbs/db_conn.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Handle Feedback</title>
-    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="../signup.css">
 </head>
 <body>
     <div class="handle-feedback-container">

@@ -17,7 +17,7 @@ $result = $conn->query("SELECT * FROM users");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Users</title>
-    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="../signup.css">
 </head>
 <body>
     <div class="manage-users-container">
