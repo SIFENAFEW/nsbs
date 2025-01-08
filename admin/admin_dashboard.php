@@ -5,7 +5,9 @@ session_start();
 //     header("Location: admin_login.php"); // Redirect to login page if not logged in or not an admin
 //     exit();
 // }
+include("../dbs/db_conn.php");
 // ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
