@@ -8,7 +8,7 @@ session_start();
 // }
 
 
-include("db_conn.php");
+include("../dbs/db_conn.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_book'])) {
     $title = $_POST['title'];
@@ -86,8 +86,8 @@ $result = $conn->query("SELECT * FROM books");
         <form action="manage_books.php" method="POST" enctype="multipart/form-data">
             <input type="text" name="title" placeholder="Book Title" required>
             <textarea name="description" placeholder="Book Description" required></textarea>
-            <input type="file" name="book_file" accept=".pdf" required>
-            <input type="file" name="book_image" accept="image/*" required>
+            <input type="file" name="book_file" placeholder="PDF File" accept=".pdf" required>
+            <input type="file" name="book_image" placeholder="Book Image" accept="image/*" required>
             <input type="submit" name="add_book" value="Add Book">
         </form>
 
