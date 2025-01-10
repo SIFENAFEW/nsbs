@@ -7,7 +7,7 @@ session_start();
 //     exit();
 // }
 
-include("db_conn.php");
+include("../dbs/db_conn.php");
 
 if (isset($_GET['user_id'])) {
     $delete_id = $_GET['user_id'];

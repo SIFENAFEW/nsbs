@@ -5,7 +5,9 @@ session_start();
 //     header("Location: admin_login.php"); // Redirect to login page if not logged in or not an admin
 //     exit();
 // }
+include("../dbs/db_conn.php");
 // ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +15,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="../signup.css">
 </head>
 <body>
     <div class="admin-container">

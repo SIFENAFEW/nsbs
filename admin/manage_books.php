@@ -75,7 +75,7 @@ $result = $conn->query("SELECT * FROM books");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Books</title>
-    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="../signup.css">
 </head>
 <body>
     <div class="manage-books-container">
