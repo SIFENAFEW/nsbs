@@ -6,7 +6,7 @@ session_start();
 //     exit();
 // }
 
-include("db_conn.php");
+include("../dbs/db_conn.php");
 
 $result = $conn->query("SELECT * FROM users"); 
 ?>
