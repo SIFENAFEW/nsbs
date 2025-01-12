@@ -1,0 +1,124 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color:#d7edfa;
+    color: #333;
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #22254b;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #555;
+}
+
+/* Hero section styles */
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.cta-buttons {
+    margin-top: 20px;
+}
+
+.cta-buttons .btn {
+    margin: 0 10px;
+}
+
+/* Value Proposition and How It Works styles */
+.value-proposition, .how-it-works {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0;
+    text-align: center;
+}
+
+.value-proposition h3, .how-it-works h3 {
+    font-size: 2rem;
+    color: #22254b;
+}
+
+.value-proposition ul, .how-it-works ol {
+    margin-left: 20px;
+}
+
+/* Testimonials styles */
+.testimonials {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.testimonials blockquote {
+    font-style: italic;
+    margin: 20px 0;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.social-media a {
+    margin: 0 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .value-proposition h3, .how-it-works h3 {
+        font-size: 1.5rem;
+    }
+
+    .testimonials blockquote {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+
+    .value-proposition h3, .how-it-works h3 {
+        font-size: 1.2rem;
+    }
+}
