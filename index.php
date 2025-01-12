@@ -1,5 +1,5 @@
 <?php
-include '../dbs/db_conn.php'; // Include database connection
+include 'db_conn.php'; // Include database connection
 
 // Fetch books from the database
 $query = "SELECT * FROM books"; // Assuming 'books' is the table name
@@ -29,7 +29,7 @@ $result = mysqli_query($conn, $query);
     <div class="books-container">
         <?php while ($row = mysqli_fetch_assoc($result)): ?>
             <div class="book">
-                <img src="<?php echo $row['image']; ?>" alt="<?php echo $row['title']; ?>">
+                
                 <h3><?php echo $row['title']; ?></h3>
                 <p><?php echo $row['description']; ?></p>
             </div>
