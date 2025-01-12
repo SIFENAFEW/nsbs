@@ -1,0 +1,65 @@
+/* footer.css */
+
+:root {
+    --primary-color: #22254b;
+    --secondary-color: #373b69;
+}
+
+.footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 40px 0; /* Increased padding for better spacing */
+    text-align: center;
+}
+
+.box-container {
+    display: flex;
+    justify-content: space-between; /* Space between boxes */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Added padding for better spacing */
+}
+
+.box {
+    flex: 1; /* Allow boxes to grow equally */
+    margin: 0 20px; /* Margin between boxes */
+}
+
+.box h3 {
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.box a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 5px 0;
+    transition: color 0.3s;
+}
+
+.box a:hover {
+    color: var(--secondary-color);
+}
+
+.credit {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.credit span {
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .box-container {
+        flex-direction: column; /* Stack boxes vertically on small screens */
+        align-items: center; /* Center align boxes */
+    }
+    
+    .box {
+        margin: 20px 0; /* Margin for vertical spacing */
+    }
+}
