@@ -3,50 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Responsive Header</title>
     <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    
 
 <header class="header">
     <div class="header-1">
         <div class="flex">
             <a href="home.php" class="logo">NONSENSE BOOK-STORE</a>
-            <p style="margin-left:auto;"> <a href="login.php">login</a> | <a href="register.php">register</a> </p>
-            <div class="share">
-                <a href="#" class="fab fa-facebook-f"></a>
-                <a href="#" class="fab fa-twitter"></a>
-                <a href="#" class="fab fa-instagram"></a>
-                <a href="#" class="fab fa-linkedin"></a>
-            </div>
+            <p>
+                <a href="login.php">Login</a> | <a href="register.php">Register</a>
+            </p>
         </div>
     </div>
 
     <div class="header-2">
         <div class="flex">
             <nav class="navbar">
-                <a href="home.php">home</a>
-                <a href="about.php">about</a>
-                <a href="shop.php">shop</a>
-                <a href="contact.php">contact</a>
-                <a href="orders.php">orders</a>
-                <a href="wishlist.php">wishlist</a> 
-                <a href="feedback.php">feedback</a> 
-                <a href="book_listing.php">book listing</a> 
-                <a href="logout.php">logout</a> 
+                <div class="nav-links">
+                    <a href="home.php">Home</a>
+                    <a href="about.php">About</a>
+                    <a href="shop.php">Shop</a>
+                    <a href="contact.php">Contact</a>
+                    <a href="orders.php">Orders</a>
+                    <a href="wishlist.php">Wishlist</a>
+                    <a href="feedback.php">Feedback</a>
+                    <a href="book_listing.php">Book Listing</a>
+                </div>
+                <a href="logout.php" class="logout">Logout</a>
             </nav>
-            <div class="icons">
-                <div id="menu-btn" class="fas fa-bars"></div>
-                <a href="search_page.php" class="fas fa-search"></a>
-                <div id="user-btn" class="fas fa-user"></div>
-                <a href="cart.php"> <i class="fas fa-shopping-cart"></i> </a> 
-            </div>
-
+            <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
-
+    </div>
 </header>
+
+<script>
+    function toggleMenu() {
+        const navbar = document.querySelector('.navbar');
+        navbar.classList.toggle('active');
+    }
+</script>
 
 </body>
 </html>
