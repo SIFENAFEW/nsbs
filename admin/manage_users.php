@@ -8,7 +8,7 @@ session_start();
 
 include("../dbs/db_conn.php");
 
-$result = $conn->query("SELECT * FROM users"); 
+$result = $conn->query("SELECT * FROM user"); 
 ?>
 
 <!DOCTYPE html>
@@ -31,19 +31,23 @@ $result = $conn->query("SELECT * FROM users");
                     <th>User ID</th>
                     <th>Username</th>
                     <th>Email</th>
+                    <th>Password</th>
+                    <th>User Type</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <?php while ($user = $result->fetch_assoc()): ?>
                     <tr>
-                        <td><?php echo htmlspecialchars($user['user_id']); ?></td>
-                        <td><?php echo htmlspecialchars($user['username']); ?></td>
+                        <td><?php echo htmlspecialchars($user['id']); ?></td>
+                        <td><?php echo htmlspecialchars($user['name']); ?></td>
                         <td><?php echo htmlspecialchars($user['email']); ?></td>
+                        <td><?php echo htmlspecialchars($user['password']); ?></td>
+                        <td><?php echo htmlspecialchars($user['user_type']); ?></td>
                         <td>
                             
                             <form action="delete_user.php" method="GET" style="display:inline;">
-                                <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
+                                <input type="hidden" name="user" value="<?php echo $user['id']; ?>">
                                 <button type="submit" onclick="return confirm('Are you sure you want to delete this user?');">Delete</button>
                             </form>
                         </td>
