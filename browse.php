@@ -21,13 +21,13 @@ $result = $conn->query("SELECT * FROM books"); // Assuming the table name is 'bo
 </head>
 <body>
     <div class="welcome-container">
-        <h1>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
+        <h1>Welcome, <?php echo htmlspecialchars($_SESSION['user_name'] ?? 'Guest'); ?>!</h1>
         <h2>Available Books</h2>
         <div class="books-list">
             <?php while ($book = $result->fetch_assoc()): ?>
                 <div class="book-container">
                     <div class="book-title"><?php echo htmlspecialchars($book['title']); ?></div>
-                    <a href="<?php echo htmlspecialchars($book['pdf']); ?>" target="_blank" class="book-pdf">View PDF</a>
+                    <a href="<?php echo 'admin/'. htmlspecialchars($book['pdf']); ?>" target="_blank" class="book-pdf">View PDF</a>
                     <div class="book-description"><?php echo htmlspecialchars($book['description']); ?></div>
                 </div>
             <?php endwhile; ?>

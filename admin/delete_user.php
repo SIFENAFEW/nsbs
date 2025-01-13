@@ -9,9 +9,9 @@ session_start();
 
 include("../dbs/db_conn.php");
 
-if (isset($_GET['user_id'])) {
-    $delete_id = $_GET['user_id'];
-    $stmt = $conn->prepare("DELETE FROM users WHERE user_id = ?");
+if (isset($_GET['user'])) {
+    $delete_id = $_GET['user'];
+    $stmt = $conn->prepare("DELETE FROM user WHERE id = ?");
     $stmt->bind_param("i", $delete_id);
     
     if ($stmt->execute()) {
