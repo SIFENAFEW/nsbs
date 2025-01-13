@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<?php include 'header.php'; ?>
+ 
     <header>
         <h1>Find Your Next Fictional Adventure in Seconds!</h1>
         <h2>Your one-stop online bookstore to discover the books you love.</h2>
@@ -37,22 +39,7 @@
             <li>Request a Book: Use our Wish Form for unavailable titles.</li>
         </ol>
     </section>
-
-    <section class="testimonials">
-        <h3>Testimonials</h3>
-        <blockquote>
-        <div class="footer-links">
-            <a href="about.php">About Us</a> | 
-            <a href="contact.php">Contact</a> | 
-            <a href="privacy.php">Privacy Policy</a>
-        </div>
-        <div class="social-media">
-            <a href="https://facebook.com">Facebook</a>
-            <a href="https://twitter.com">Twitter</a>
-            <a href="https://instagram.com">Instagram</a>
-        </div>
-        <p>© 2025 Nonsense Book Store. All rights reserved.</p>
-    </blockquote>
+    
 
 </body>
 </html>
