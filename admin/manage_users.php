@@ -1,6 +1,6 @@
 <?php
 
-include '../dbs/db_conn.php';
+include 'config.php';
 
 session_start();
 
@@ -25,7 +25,6 @@ $result = $conn->query("SELECT * FROM users");
 <body>
     <div class="manage-users-container">
         <h2>Manage User Accounts</h2>
-        <!-- Changed the link text and target page -->
         <p><a href="admin_page.php">Return Home</a></p>
 
         <h3>Existing Users</h3>
@@ -35,7 +34,6 @@ $result = $conn->query("SELECT * FROM users");
                     <th>User ID</th>
                     <th>Username</th>
                     <th>Email</th>
-                    <th>Password</th>
                     <th>User Type</th>
                     <th>Actions</th>
                 </tr>
@@ -46,12 +44,10 @@ $result = $conn->query("SELECT * FROM users");
                         <td><?php echo htmlspecialchars($user['id']); ?></td>
                         <td><?php echo htmlspecialchars($user['name']); ?></td>
                         <td><?php echo htmlspecialchars($user['email']); ?></td>
-                        <td><?php echo htmlspecialchars($user['password']); ?></td>
                         <td><?php echo htmlspecialchars($user['user_type']); ?></td>
                         <td>
-                            
-                            <form action="delete_user.php" method="GET" style="display:inline;">
-                                <input type="hidden" name="user" value="<?php echo $user['id']; ?>">
+                            <form action="delete_user.php" method="POST" style="display:inline;">
+                                <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>"> 
                                 <button type="submit" onclick="return confirm('Are you sure you want to delete this user?');">Delete</button>
                             </form>
                         </td>
@@ -62,3 +58,7 @@ $result = $conn->query("SELECT * FROM users");
     </div>
 </body>
 </html>
+
+<?php
+$conn->close(); 
+?>
