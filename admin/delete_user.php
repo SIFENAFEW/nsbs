@@ -1,27 +1,40 @@
-<?php 
-session_start();
+<?php
 
+include 'config.php';
 
-// if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
-//     header("Location: admin_login.php"); // Redirect to login page if not logged in or not an admin
-//     exit();
-// }
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Validate user_id 
+    $user_id = filter_var($_POST['user_id'], FILTER_SANITIZE_NUMBER_INT); 
 
-include("../dbs/db_conn.php");
+    // Check if user_id is valid and exists
+    $sql = "SELECT id FROM users WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-if (isset($_GET['user'])) {
-    $delete_id = $_GET['user'];
-    $stmt = $conn->prepare("DELETE FROM user WHERE id = ?");
-    $stmt->bind_param("i", $delete_id);
-    
-    if ($stmt->execute()) {
+    if ($result->num_rows > 0) { 
+        $sql = "DELETE FROM users WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $user_id);
+
+        if ($stmt->execute()) {
+            // Deletion successful
+            header("Location: manage_users.php?success=1"); 
+            exit();
+        } else {
+            // Handle deletion error
+            echo "Error deleting user.";
+        }
     } else {
-        echo "<script>alert('Error deleting user: " . $stmt->error . "');</script>";
+        // Handle invalid user_id
+        echo "Invalid user ID.";
     }
-    $stmt->close();
+} else {
+    // Redirect to manage_users.php if not a POST request
+    header("Location: manage_users.php");
+    exit();
 }
 
-
-header("Location: manage_users.php");
-exit();
+$conn->close();
 ?>
