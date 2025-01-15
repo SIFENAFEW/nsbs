@@ -1,14 +1,17 @@
-<?php 
+<?php
+
+include 'config.php';
+
 session_start();
 
-// if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
-//     header("Location: admin_login.php"); // Redirect to login page if not logged in or not an admin
-//     exit();
-// }
+$admin_id = $_SESSION['admin_id'];
 
-include("../dbs/db_conn.php");
+if (!isset($admin_id)) {
+    header('location:login.php');
+    exit;
+}
 
-$result = $conn->query("SELECT * FROM user"); 
+$result = $conn->query("SELECT * FROM users"); 
 ?>
 
 <!DOCTYPE html>
@@ -17,12 +20,13 @@ $result = $conn->query("SELECT * FROM user");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Users</title>
-    <link rel="stylesheet" href="../signup.css">
+    <link rel="stylesheet" href="manage_user.css">
 </head>
 <body>
     <div class="manage-users-container">
         <h2>Manage User Accounts</h2>
-        <p><a href="admin_dashboard.php">Back to Dashboard</a></p>
+        <!-- Changed the link text and target page -->
+        <p><a href="admin_page.php">Return Home</a></p>
 
         <h3>Existing Users</h3>
         <table>
