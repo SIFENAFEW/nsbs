@@ -1,6 +1,6 @@
 <?php
 
-include 'config.php';
+include '../dbs/db_conn.php';
 
 session_start();
 
